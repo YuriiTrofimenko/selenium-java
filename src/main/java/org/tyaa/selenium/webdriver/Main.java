@@ -24,10 +24,20 @@ public class Main {
         driver.manage().window().maximize();
 
         driver.get("http://en.wikipedia.org");
-
+        
+        Thread.sleep(3000);
+        
+        driver.navigate().to("http://en.wikipedia.org/wiki/java");
+        Thread.sleep(3000);
+        driver.navigate().back();
+        Thread.sleep(3000);
+        driver.navigate().forward();
+        Thread.sleep(3000);
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         jse.executeScript("window.scrollBy(0, 1000)", "");
         Thread.sleep(3000);
         jse.executeScript("window.scrollBy(0, -1000)", "");
+        Thread.sleep(3000);
+        driver.quit();
     }
 }
